@@ -1,4 +1,4 @@
-# FinalProject
+# FinalProject BSIT 2-2A
 
 Members:
 Delos Santos, Jerico A.
