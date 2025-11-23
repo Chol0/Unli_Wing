@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unli Wings</title>
+    <title>Unlimited Wings Promo</title>
     <style>
         * {
             margin: 0;
@@ -12,38 +12,35 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(to bottom, #fef3c7, #ffffff);
-            min-height: 100vh;
         }
 
-        /* Para sa Header Styles */
+        /* Header */
         header {
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: sticky;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            color: #b45309;
         }
 
         nav {
@@ -52,393 +49,487 @@
         }
 
         nav a {
-            color: #4b5563;
+            color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            color: #b45309;
+            opacity: 0.8;
         }
 
         .cart-button {
-            position: relative;
-            background: white;
-            border: 1px solid #d1d5db;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
             padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background 0.3s;
+            font-size: 1.2rem;
+            position: relative;
+            transition: all 0.3s;
         }
 
         .cart-button:hover {
-            background: #f9fafb;
+            background: white;
+            color: #FF6B35;
         }
 
         .cart-badge {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: #b45309;
+            background: #D32F2F;
             color: white;
+            border-radius: 50%;
             width: 20px;
             height: 20px;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
+            font-weight: bold;
         }
 
-        /* Sa style ng Hero Section */
+        /* Hero Section */
         .hero {
-            position: relative;
-            height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-image: url('https://images.deliveryhero.io/image/fd-ph/LH/b8wg-listing.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.4);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
             color: white;
-            padding: 0 2rem;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
         }
 
-        /* Button Styles */
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #FF6B35;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
         .btn {
-            background: #b45309;
+            display: inline-block;
+            background: #FF6B35;
             color: white;
+            padding: 1rem 2rem;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn:hover {
-            background: #92400e;
+            background: #F7931E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
         }
 
-        .btn-secondary {
-            background: white;
-            color: #b45309;
-            border: 1px solid #b45309;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .btn-secondary:hover {
-            background: #fef3c7;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
+        /* About Section */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 80px 2rem;
         }
 
         .section-title {
             font-size: 2.5rem;
-            text-align: center;
             margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
         }
 
         .section-description {
             text-align: center;
-            color: #6b7280;
-            max-width: 800px;
-            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        
-
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             align-items: center;
         }
 
         .about-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Products Grid Para sa style nila */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .product-content {
-            padding: 1.5rem;
-        }
-
-        .product-category {
-            display: inline-block;
-            background: #b45309;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.25rem;
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-description {
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            font-size: 1.25rem;
-            color: #b45309;
-            font-weight: bold;
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .quantity-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid #d1d5db;
-            background: white;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-btn:hover {
-            background: #f9fafb;
-        }
-
-        /* Cart Sidebar dun lalabas order*/
-        .cart-sidebar {
-            position: fixed;
-            right: -100%;
-            top: 0;
-            width: 100%;
-            max-width: 500px;
-            height: 100vh;
-            background: white;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-            transition: right 0.3s;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cart-sidebar.open {
-            right: 0;
-        }
-
-        .cart-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            display: none;
-        }
-
-        .cart-overlay.open {
-            display: block;
-        }
-
-        .cart-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cart-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f9fafb;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cart-item-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 0.25rem;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .cart-item-price {
-            color: #b45309;
-            margin-bottom: 0.5rem;
-        }
-
-        .cart-item-remove {
-            background: none;
-            border: none;
-            color: #ef4444;
-            cursor: pointer;
-        }
-
-        .cart-footer {
-            padding: 1.5rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .cart-total.final {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #b45309;
-            margin-top: 0.5rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .empty-cart {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: #6b7280;
-        }
-
-        /* Contact Section footer to ahh*/
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            color: white;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .contact-section {
-            background: #78350f;
-            padding: 5rem 2rem;
+            background: #f8f8f8;
+            padding: 80px 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-grid h3 {
+            color: #FF6B35;
+        }
+
+        .contact-grid p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 2rem;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid #FF6B35;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FF6B35;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: #f8f8f8;
+            padding: 80px 2rem;
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .menu-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .menu-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: #FF6B35;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 3px solid #FF6B35;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #FF6B35;
+            overflow: hidden;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item h4 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .menu-item .spice-level {
+            font-size: 1rem;
+        }
+
+        .menu-item p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .menu-extras {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .menu-extras h4 {
+            font-size: 1.5rem;
+            color: #FF6B35;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .extras-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .extra-item {
+            background: #f8f8f8;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid #FF6B35;
+        }
+
+        /* Promotion Section */
+        .promotion {
+            background: linear-gradient(135deg, #D32F2F 0%, #FF6B35 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .promotion h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .promotion p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .promo-code {
+            display: inline-block;
+            background: white;
+            color: #D32F2F;
+            padding: 1.5rem 3rem;
+            border-radius: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            letter-spacing: 3px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .price-banner {
+            background: rgba(255,255,255,0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .price-banner h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
         }
 
         /* Footer */
         footer {
-            background: #451a03;
-            color: #fef3c7;
+            background: #333;
+            color: white;
             text-align: center;
             padding: 2rem;
         }
 
-        /* Toast Notification paara slumabs */
-        .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #10b981;
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transform: translateY(200%);
-            transition: transform 0.3s;
-            z-index: 2000;
+        footer p {
+            margin-bottom: 1rem;
         }
 
-        .toast.show {
-            transform: translateY(0);
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #FF6B35;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive */
@@ -447,42 +538,43 @@
                 font-size: 2rem;
             }
 
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1.1rem;
             }
 
-            nav {
+            .nav-links {
                 display: none;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
+            .features h2,
+            .contact h2,
+            .promotion h2 {
+                font-size: 2rem;
+            }
+
+            .promo-code {
+                font-size: 1.5rem;
+                padding: 1rem 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Dito nakalagay yung nav natin saka yung pic-->
+    <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                Unli Wings
-            </div>
+            <div class="logo">🍗 UNLI WINGS 🍗</div>
             <nav>
                 <a href="#home">Home</a>
+                <a href="#features">Why Us</a>
                 <a href="#menu">Menu</a>
-                <a href="#about">About</a>
+                <a href="#promotion">Promo</a>
                 <a href="#contact">Contact</a>
-            </nav>
-            <button class="cart-button" onclick="openCart()">
-                🛒
-                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
-            </button>
+                          </nav>
         </div>
     </header>
 
-    <!-- Hero Section nan dito yung button for menu -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Welcome to Unli Wings</h1>
@@ -493,332 +585,350 @@
         </div>
     </section>
 
-    <!-- About Section dapat pag pinindot nila lalabas yung another page para sa about -->
+    <!-- About Section -->
     <section id="about" style="background: white;">
         <div class="container">
             <div class="about-grid">
                 <div>
                     <h2 class="section-title" style="text-align: left;">Crafted with Passion</h2>
                     <p style="margin-bottom: 1rem; color: #6b7280;">
-                        At Unli Wings, we believe that great Chicken starts with great Staff. 
-                        Our Chicken expert carefully select and roast each batch to perfection, 
-                        ensuring every Chicken delivers an exceptional experience.
+                        At Unli Wings, we believe that great Wings starts with great Staff. 
+                        Our Wing experts carefully select and cook each batch to perfection, 
+                        ensuring every Wing delivers an exceptional experience.
                     </p>
                     <p style="margin-bottom: 1.5rem; color: #6b7280;">
-                        From our signature lattes to bold Chicken, each chicken is bread with 
-                        precision and care. Join us on a journey through the world of premium Unli Wings.
+                        From our signature Buffalo to bold Korean flavors, each wing is crafted with 
+                        precision and care. Join us on a journey through the world of premium wings.
                     </p>
-                    <a href="About Us - Wings To Sawa.html" class="btn">Learn More</a>
+                    <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Learn More</button>
                 </div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlGSaZzzFMPYYJNJE6Jo-fZ-4tV2Rm_WSlOQ&s" 
-                     alt="Unli?" class="about-image">
+                <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3N8ZW58MHx8fHwxNzYyNDQ0NzM2fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                     alt="Delicious chicken wings" class="about-image">
             </div>
         </div>
     </section>
 
-    <!-- Products Section yung mga nasa menu natin -->
-    <section id="menu">
-        <div class="container">
-            <h2 class="section-title">Our Menu</h2>
-            <p class="section-description">
-                Explore our carefully curated selection of products. 
-                Each item is crafted to perfection just for you.
-            </p>
-            <div class="products-grid" id="productsGrid"></div>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Why Choose Our Wings?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔥</div>
+                <h3>Fresh & Hot</h3>
+                <p>Our wings are cooked fresh to order and served piping hot every single time!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌶️</div>
+                <h3>10+ Flavors</h3>
+                <p>Choose from Classic Buffalo, BBQ, Honey Garlic, Spicy Korean, and many more!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Truly Unlimited</h3>
+                <p>No time limit! Enjoy unlimited wings at your own pace with friends and family.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🍳</div>
+                <h3>Quality Ingredients</h3>
+                <p>We use only premium quality chicken and the freshest ingredients for our sauces.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎉</div>
+                <h3>Perfect for Groups</h3>
+                <p>Great for parties, celebrations, hangouts, or just a casual meal with friends!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Best Value</h3>
+                <p>Unbeatable prices for unlimited wings! Get the best bang for your buck here.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section saan sila tatawag-->
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="menu-container">
+            <h2>Our Menu</h2>
+            <p class="menu-subtitle">Explore our delicious wings and sides</p>
+
+            <div class="menu-categories">
+                <div class="menu-category">
+                    <h3>Wings Flavors</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Classic Buffalo Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Classic Buffalo</h4>
+                                <span class="spice-level">🌶️🌶️</span>
+                            </div>
+                            <p>Our signature flavor, crispy and spicy</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1592011432621-f7f576f44484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYnElMjBjaGlja2VuJTIwd2luZ3N8ZW58MXx8fHwxNzYzODg3NjgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="BBQ Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>BBQ</h4>
+                                <span class="spice-level">🌶️</span>
+                            </div>
+                            <p>Smoky and savory, perfect for a milder taste</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1726789991827-93dba0b1d195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob25leSUyMGdhcmxpYyUyMHdpbmdzfGVufDF8fHx8MTc2MzkxNDExOXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Honey Garlic Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Honey Garlic</h4>
+                                <span class="spice-level">🌶️</span>
+                            </div>
+                            <p>Sweet and tangy, a unique flavor twist</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1734987942068-a1a459d65d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGljeSUyMGNoaWNrZW4lMjB3aW5nc3xlbnwxfHx8fDE3NjM4NDk0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Spicy Korean Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Spicy Korean</h4>
+                                <span class="spice-level">🌶️🌶️🌶️</span>
+                            </div>
+                            <p>Flavorful and spicy, inspired by Korean cuisine</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Garlic Parmesan Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Garlic Parmesan</h4>
+                                <span class="spice-level">🌶️</span>
+                            </div>
+                            <p>Cheesy and garlicky, a delicious twist</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1592011432621-f7f576f44484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYnElMjBjaGlja2VuJTIwd2luZ3N8ZW58MXx8fHwxNzYzODg3NjgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Teriyaki Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Teriyaki</h4>
+                                <span class="spice-level">🌶️</span>
+                            </div>
+                            <p>Sweet and savory, inspired by Japanese cuisine</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Buffalo Blue Cheese Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Buffalo Blue Cheese</h4>
+                                <span class="spice-level">🌶️🌶️</span>
+                            </div>
+                            <p>Classic Buffalo with a creamy blue cheese twist</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1734987942068-a1a459d65d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGljeSUyMGNoaWNrZW4lMjB3aW5nc3xlbnwxfHx8fDE3NjM4NDk0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Hot & Spicy Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Hot & Spicy</h4>
+                                <span class="spice-level">🌶️🌶️🌶️</span>
+                            </div>
+                            <p>Extra spicy, for the heat lovers</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Lemon Pepper Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Lemon Pepper</h4>
+                                <span class="spice-level">🌶️</span>
+                            </div>
+                            <p>Zesty and refreshing with a peppery kick</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1726789991827-93dba0b1d195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob25leSUyMGdhcmxpYyUyMHdpbmdzfGVufDF8fHx8MTc2MzkxNDExOXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Mango Habanero Wings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Mango Habanero</h4>
+                                <span class="spice-level">🌶️🌶️🌶️</span>
+                            </div>
+                            <p>Sweet tropical mango with fiery habanero heat</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Sides & Extras</h3>
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyaWNlJTIwYm93bHxlbnwxfHx8fDE3NjM5MTQxMjB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Unlimited Rice" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Unlimited Rice</h4>
+                            </div>
+                            <p>Steaming hot jasmine rice - unlimited refills</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1630431341973-02e1b662ec35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmVuY2glMjBmcmllc3xlbnwxfHx8fDE3NjM4NDMzMzh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="French Fries" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>French Fries</h4>
+                            </div>
+                            <p>Crispy golden fries - unlimited with promo</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1573403707491-38a4ea19edc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xlc2xhdyUyMHNhbGFkfGVufDF8fHx8MTc2MzgzNzUzM3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Coleslaw" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Coleslaw</h4>
+                            </div>
+                            <p>Fresh and tangy, a perfect complement</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJsaWMlMjBicmVhZHxlbnwxfHx8fDE3NjM5MTQxMjB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Garlic Bread" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Garlic Bread</h4>
+                            </div>
+                            <p>Crispy and garlicky, perfect for dipping</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1639024471283-03518883512d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmlvbiUyMHJpbmdzfGVufDF8fHx8MTc2MzkxNDEyMHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Onion Rings" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Onion Rings</h4>
+                            </div>
+                            <p>Crispy and savory, a delicious side</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1543923151-e9c0f6e77c1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYWMlMjBhbmQlMjBjaGVlc2V8ZW58MXx8fHwxNzYzOTE0MTIxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Mac & Cheese" class="menu-item-image">
+                            <div class="menu-item-header">
+                                <h4>Mac & Cheese</h4>
+                            </div>
+                            <p>Cheesy and creamy, a comforting side</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Beverages</h3>
+                    <div class="menu-extras">
+                        <h4>Drinks Available</h4>
+                        <div class="extras-list">
+                            <div class="extra-item">Iced Tea</div>
+                            <div class="extra-item">Lemonade</div>
+                            <div class="extra-item">Soda</div>
+                            <div class="extra-item">Bottled Water</div>
+                            <div class="extra-item">Fresh Juice</div>
+                            <div class="extra-item">Milkshakes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotion Section -->
+    <section id="promotion" class="promotion">
+        <h2>🔥 UNLI WINGS PROMO! 🔥</h2>
+        <p>Limited Time Offer - Don't Miss Out!</p>
+        
+        <div class="price-banner">
+            <h3>ONLY ₱299</h3>
+            <p style="font-size: 1.2rem;">Unlimited Wings for 1 Person!</p>
+        </div>
+
+        <div class="promo-code">UNLIWINGS2025</div>
+        <p>Show this promo code when you visit our store!</p>
+        
+        <div style="margin-top: 3rem;">
+            <p style="font-size: 1.3rem; margin-bottom: 1rem;"><strong>📍 Visit Us Today!</strong></p>
+            <p style="font-size: 1.1rem;">123 Food Street, Downtown City</p>
+            <p style="font-size: 1.1rem;">Open Daily: 11:00 AM - 10:00 PM</p>
+            <p style="font-size: 1.1rem; margin-top: 1rem;">📞 Call for Reservations: (02) 1234-5678</p>
+            <p style="font-size: 1.1rem;">📱 Mobile: 0917-123-4567</p>
+        </div>
+
+        <div style="margin-top: 2rem; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
+            <p><strong>Promo Mechanics:</strong></p>
+            <p>✓ Valid for dine-in only</p>
+            <p>✓ Available daily from 11AM - 10PM</p>
+            <p>✓ Unlimited wings with unlimited rice or fries</p>
+            <p>✓ Choose from all available flavors</p>
+            <p>✓ One promo per person</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-grid">
                 <div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Visit Us</h3>
-                    <p>123 Street</p>
-                    <p>Unli, BC 12345</p>
+                    <p>123 Food Street</p>
+                    <p>Downtown City, Metro Manila</p>
+                    <p style="margin-top: 1rem;">Philippines</p>
                 </div>
                 <div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Hours</h3>
-                    <p>Monday - Friday: 7am - 8pm</p>
-                    <p>Saturday - Sunday: 8am - 9pm</p>
+                    <p>Monday - Friday: 11am - 10pm</p>
+                    <p>Saturday - Sunday: 10am - 11pm</p>
+                    <p style="margin-top: 1rem;">Open Daily!</p>
                 </div>
                 <div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Contact</h3>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Email: Drexcel.com</p>
+                    <p>Phone: (02) 1234-5678</p>
+                    <p>Mobile: 0917-123-4567</p>
+                    <p>Email: hello@unliwings.com</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Foter -->
+    <!-- Reservation Section -->
+    <section class="contact">
+        <h2>Reserve Your Table</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Your Phone Number" required>
+            <input type="number" placeholder="Number of Persons" min="1" required>
+            <textarea placeholder="Special Requests or Questions (Optional)"></textarea>
+            <button type="submit" class="submit-button">Send Reservation Request</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Unli wings. All rights reserved.</p>
+        <p>&copy; 2025 Unli Wings Restaurant. All rights reserved.</p>
+        <p>Follow us on social media for more promos and updates!</p>
+        <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="TikTok">🎵</a>
+            <a href="#" title="Twitter">🐦</a>
+        </div>
     </footer>
 
-    <!-- Cart Sidebar paara sa online order -->
-    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2 class="cart-title">Shopping Cart (<span id="cartCount">0</span> items)</h2>
-            <button class="close-cart" onclick="closeCart()">✕</button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div class="empty-cart" id="emptyCart">
-                <p style="margin-bottom: 1rem;">Your cart is empty</p>
-                <button class="btn" onclick="closeCart()">Continue Shopping</button>
-            </div>
-        </div>
-        <div class="cart-footer" id="cartFooter" style="display: none;">
-            <div class="cart-total">
-                <span>Subtotal:</span>
-                <span id="subtotal">$0.00</span>
-            </div>
-            <div class="cart-total">
-                <span>Tax (10%):</span>
-                <span id="tax">$0.00</span>
-            </div>
-            <div class="cart-total final">
-                <span>Total:</span>
-                <span id="total">$0.00</span>
-            </div>
-            <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="checkout()">
-                Proceed to Checkout
-            </button>
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
     <script>
-        // Products Data
-        const products = [
-            {
-                id: 1,
-                name: "Classic Buffalo Latte",
-                description: "Tangy, slightly spicy, and buttery flavor. A crowd favorite with the perfect balance of heat and zest.",
-                price: 4.50,
-                image: "https://source.unsplash.com/1080x1080/?buffalo-wings",
-                category: "Hot"
-            },
-            {
-                id: 2,
-                name: "Garlic Parmesan",
-                description: "Savory garlic combined with creamy parmesan. Rich, aromatic, and perfect for those who love bold flavors.",
-                price: 3.50,
-                image: "",
-                category: "Hot"
-            },
-            {
-                id: 3,
-                name: "Honey BBQ",
-                description: "Sweet and smoky sauce glazed over crispy wings. Great for those who like a mild, flavorful taste.",
-                price: 4.75,
-                image: "",
-                category: "Hot"
-            },
-            {
-                id: 4,
-                name: "Spicy Korean (Yangnyeom)",
-                description: "Sweet, spicy, and a little sticky with sesame notes. Inspired by Korean street-style chicken.",
-                price: 4.25,
-                image: "",
-                category: "Vey Hot"
-            },
-            {
-                id: 5,
-                name: "Lemon Pepper",
-                description: "Zesty lemon mixed with cracked black pepper. Light, refreshing, and flavorful without being spicy.",
-                price: 5.25,
-                image: "",
-                category: "Hot"
-            },
-            {
-                id: 6,
-                name: "Teriyaki Glaze",
-                description: "A sweet and slightly salty Asian-style sauce. Smooth, shiny, and perfect for dipping.",
-                price: 12.99,
-                image: "",
-                category: "Hot"
-            }
-        ];
-
-        // Cart State
-        let cart = [];
-
-        // Initialize Products
-        function renderProducts() {
-            const grid = document.getElementById('productsGrid');
-            grid.innerHTML = products.map(product => {
-                const cartItem = cart.find(item => item.id === product.id);
-                const quantity = cartItem ? cartItem.quantity : 0;
-                
-                return `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}" class="product-image">
-                        <div class="product-content">
-                            <span class="product-category">${product.category}</span>
-                            <h3 class="product-title">${product.name}</h3>
-                            <p class="product-description">${product.description}</p>
-                            <div class="product-footer">
-                                <span class="product-price">$${product.price.toFixed(2)}</span>
-                                ${quantity > 0 ? `
-                                    <div class="quantity-controls">
-                                        <button class="quantity-btn" onclick="decreaseQuantity(${product.id})">−</button>
-                                        <span>${quantity}</span>
-                                        <button class="quantity-btn" onclick="increaseQuantity(${product.id})">+</button>
-                                    </div>
-                                ` : `
-                                    <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                                `}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Add to Cart
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
-            
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            
-            showToast(`${product.name} added to cart!`);
-            updateCart();
-            renderProducts();
-        }
-
-        // Increase Quantity
-        function increaseQuantity(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                item.quantity++;
-                updateCart();
-                renderProducts();
-            }
-        }
-
-        // Decrease Quantity
-        function decreaseQuantity(productId) {
-            const item = cart.find(item => item.id === productId);
-            if (item) {
-                item.quantity--;
-                if (item.quantity === 0) {
-                    cart = cart.filter(i => i.id !== productId);
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-                updateCart();
-                renderProducts();
-            }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your reservation request! We will contact you shortly to confirm your table.');
+            event.target.reset();
         }
 
-        // Remove from Cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            showToast('Item removed from cart');
-            updateCart();
-            renderProducts();
-        }
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Update Cart Display
-        function updateCart() {
-            const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const tax = subtotal * 0.1;
-            const total = subtotal + tax;
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-            // Update badge
-            const badge = document.getElementById('cartBadge');
-            const countSpan = document.getElementById('cartCount');
-            
-            if (cartCount > 0) {
-                badge.style.display = 'flex';
-                badge.textContent = cartCount;
-            } else {
-                badge.style.display = 'none';
-            }
-            countSpan.textContent = cartCount;
-
-            // Update cart items
-            const cartItemsDiv = document.getElementById('cartItems');
-            const emptyCart = document.getElementById('emptyCart');
-            const cartFooter = document.getElementById('cartFooter');
-
-            if (cart.length === 0) {
-                emptyCart.style.display = 'block';
-                cartFooter.style.display = 'none';
-                cartItemsDiv.innerHTML = `
-                    <div class="empty-cart">
-                        <p style="margin-bottom: 1rem;">Your cart is empty</p>
-                        <button class="btn" onclick="closeCart()">Continue Shopping</button>
-                    </div>
-                `;
-            } else {
-                emptyCart.style.display = 'none';
-                cartFooter.style.display = 'block';
-                
-                cartItemsDiv.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <div class="cart-item-title">${item.name}</div>
-                            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="decreaseQuantity(${item.id})">−</button>
-                                <span>${item.quantity}</span>
-                                <button class="quantity-btn" onclick="increaseQuantity(${item.id})">+</button>
-                            </div>
-                        </div>
-                        <div style="display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between;">
-                            <button class="cart-item-remove" onclick="removeFromCart(${item.id})">🗑️</button>
-                            <strong>$${(item.price * item.quantity).toFixed(2)}</strong>
-                        </div>
-                    </div>
-                `).join('');
-
-                document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-                document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-            }
-        }
-
-        // Open Cart para mag open
-        function openCart() {
-            document.getElementById('cartSidebar').classList.add('open');
-            document.getElementById('cartOverlay').classList.add('open');
-        }
-
-        // Close Cart
-        function closeCart() {
-            document.getElementById('cartSidebar').classList.remove('open');
-            document.getElementById('cartOverlay').classList.remove('open');
-        }
-
-        // Checkout
-        function checkout() {
-            showToast('Proceeding to checkout... (Demo mode)');
-            closeCart();
-        }
-
-        // Show Toast Notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-      
-        renderProducts();
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
