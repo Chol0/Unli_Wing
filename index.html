@@ -10,54 +10,124 @@
             padding: 0;
             box-sizing: border-box;
         }
+.add-to-cart-btn {
+    width: 100%;
+    background: #FF6B35;
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background: #F7931E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* CART BUTTON */
+.floating-cart {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #FF6B35;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    font-weight: bold;
+    z-index: 2000;
+    transition: 0.3s;
+}
+.floating-cart:hover {
+    transform: scale(1.05);
+}
+
+.cart-count {
+    background: #D32F2F;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    font-size: 0.8rem;
+}
+
+/* CART PANEL */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    z-index: 3000;
+    transition: 0.4s;
+    overflow-y: auto;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-item {
+    border-bottom: 2px solid #eee;
+    padding: 10px 0;
+}
+
+.cart-item-title {
+    font-weight: bold;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.qty-btn {
+    background: #FF6B35;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    color: #D32F2F;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #FF6B35;
+    padding: 1rem;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
         }
-
-          /* Loading Screen Styles */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff7e6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-        }
-
-        #loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader {
-            text-align: center;
-        }
-
-        .loader img {
-            width: 100px;
-            height: 100px;
-            animation: spin 1s linear infinite;
-        }
-
-        .loader p {
-            color: #b45309;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
 
         /* Header */
         header {
@@ -599,6 +669,7 @@
                 padding: 1rem 2rem;
             }
         }
+
     </style>
 </head>
 <body>
@@ -698,12 +769,18 @@
                     <h3>Wings Flavors</h3>
                     <div class="menu-grid">
                         <div class="menu-item">
+
                             <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Classic Buffalo Wings" class="menu-item-image">
+
+
                             <div class="menu-item-header">
                                 <h4>Classic Buffalo</h4>
                                 <span class="spice-level">🌶️🌶️</span>
                             </div>
                             <p>Our signature flavor, crispy and spicy</p>
+    <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+</button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1592011432621-f7f576f44484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYnElMjBjaGlja2VuJTIwd2luZ3N8ZW58MXx8fHwxNzYzODg3NjgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="BBQ Wings" class="menu-item-image">
@@ -712,6 +789,9 @@
                                 <span class="spice-level">🌶️</span>
                             </div>
                             <p>Smoky and savory, perfect for a milder taste</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1726789991827-93dba0b1d195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob25leSUyMGdhcmxpYyUyMHdpbmdzfGVufDF8fHx8MTc2MzkxNDExOXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Honey Garlic Wings" class="menu-item-image">
@@ -720,6 +800,9 @@
                                 <span class="spice-level">🌶️</span>
                             </div>
                             <p>Sweet and tangy, a unique flavor twist</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1734987942068-a1a459d65d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGljeSUyMGNoaWNrZW4lMjB3aW5nc3xlbnwxfHx8fDE3NjM4NDk0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Spicy Korean Wings" class="menu-item-image">
@@ -728,6 +811,9 @@
                                 <span class="spice-level">🌶️🌶️🌶️</span>
                             </div>
                             <p>Flavorful and spicy, inspired by Korean cuisine</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Garlic Parmesan Wings" class="menu-item-image">
@@ -736,6 +822,9 @@
                                 <span class="spice-level">🌶️</span>
                             </div>
                             <p>Cheesy and garlicky, a delicious twist</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1592011432621-f7f576f44484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYnElMjBjaGlja2VuJTIwd2luZ3N8ZW58MXx8fHwxNzYzODg3NjgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Teriyaki Wings" class="menu-item-image">
@@ -744,6 +833,9 @@
                                 <span class="spice-level">🌶️</span>
                             </div>
                             <p>Sweet and savory, inspired by Japanese cuisine</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Buffalo Blue Cheese Wings" class="menu-item-image">
@@ -752,6 +844,9 @@
                                 <span class="spice-level">🌶️🌶️</span>
                             </div>
                             <p>Classic Buffalo with a creamy blue cheese twist</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1734987942068-a1a459d65d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGljeSUyMGNoaWNrZW4lMjB3aW5nc3xlbnwxfHx8fDE3NjM4NDk0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Hot & Spicy Wings" class="menu-item-image">
@@ -760,6 +855,9 @@
                                 <span class="spice-level">🌶️🌶️🌶️</span>
                             </div>
                             <p>Extra spicy, for the heat lovers</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1631897788978-da06ec45adcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaGlja2VuJTIwd2luZ3MlMjBidWZmYWxvfGVufDF8fHx8MTc2MzkxNDExOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Lemon Pepper Wings" class="menu-item-image">
@@ -768,6 +866,9 @@
                                 <span class="spice-level">🌶️</span>
                             </div>
                             <p>Zesty and refreshing with a peppery kick</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                         <div class="menu-item">
                             <img src="https://images.unsplash.com/photo-1726789991827-93dba0b1d195?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob25leSUyMGdhcmxpYyUyMHdpbmdzfGVufDF8fHx8MTc2MzkxNDExOXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Mango Habanero Wings" class="menu-item-image">
@@ -776,6 +877,9 @@
                                 <span class="spice-level">🌶️🌶️🌶️</span>
                             </div>
                             <p>Sweet tropical mango with fiery habanero heat</p>
+ <button class="add-to-cart-btn" data-name="Classic Buffalo" data-price="299">
+        Add to Order
+    </button>
                         </div>
                     </div>
                 </div>
@@ -971,6 +1075,87 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+let cart = [];
+
+function toggleCart() {
+    document.getElementById("cartPanel").classList.toggle("open");
+}
+
+document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+
+        const item = cart.find(i => i.name === name);
+
+        if (item) item.qty++;
+        else cart.push({ name, price, qty: 1 });
+
+        updateCart();
+    });
+});
+
+function updateCart() {
+    const cartItemsDiv = document.getElementById("cartItems");
+    const cartCount = document.querySelector(".cart-count");
+    const cartTotal = document.getElementById("cartTotal");
+
+    cartItemsDiv.innerHTML = "";
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price * item.qty;
+        count += item.qty;
+
+        cartItemsDiv.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-item-title">${item.name}</div>
+                <div class="cart-item-controls">
+                    <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                    <span>${item.qty}</span>
+                    <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                    <span class="remove-btn" onclick="removeItem(${index})">🗑️</span>
+                </div>
+            </div>
+        `;
+    });
+
+    cartCount.textContent = count;
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function changeQty(index, num) {
+    cart[index].qty += num;
+    if (cart[index].qty <= 0) cart.splice(index, 1);
+    updateCart();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function checkout() {
+    alert("Your order has been submitted! Thank you!");
+    cart = [];
+    updateCart();
+    toggleCart();
+}
+
     </script>
+<div class="floating-cart" onclick="toggleCart()">
+    🛒 Order <span class="cart-count">0</span>
+</div>
+
+<div class="cart-panel" id="cartPanel">
+    <h2>Your Order</h2>
+    <div id="cartItems"></div>
+
+    <h3 style="margin-top: 20px;">Total: ₱<span id="cartTotal">0</span></h3>
+
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+</div>
+
 </body>
 </html>
