@@ -683,6 +683,8 @@
                 <a href="#menu">Menu</a>
                 <a href="#promotion">Promo</a>
                 <a href="#contact">Contact</a>
+<a href="#" onclick="openLogin()">Sign In</a>
+
                           </nav>
         </div>
     </header>
@@ -692,7 +694,8 @@
         <div class="hero-content">
             <h1>Welcome to Unli Wings</h1>
             <p>Discover our Unli Wings selections, made with premium Chicken and expert care. Every Chicken tells a story of quality and passion.</p>
-            <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+           <button class="add-to-cart-btn" data-name="Buffalo Wings">Add to Cart</button>
+
                 View Our Menu
             </button>
         </div>
@@ -1051,118 +1054,109 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+ <script>
+/* Smooth scrolling */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
-
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your reservation request! We will contact you shortly to confirm your table.');
-            event.target.reset();
         }
+    });
+});
 
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-let cart = [];
-
-function toggleCart() {
-    document.getElementById("cartPanel").classList.toggle("open");
+/* Reservation Form */
+function handleSubmit(event) {
+    event.preventDefault();
+    alert('Thank you for your reservation request! We will contact you shortly!');
+    event.target.reset();
 }
 
-document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        const name = button.dataset.name;
-        const price = parseFloat(button.dataset.price);
+/* Fade-in animation */
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+});
+document.querySelectorAll('.feature-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = '0.6s';
+    observer.observe(card);
+});
 
-        const item = cart.find(i => i.name === name);
+/* CART SYSTEM */
+let cart = [];
 
-        if (item) item.qty++;
-        else cart.push({ name, price, qty: 1 });
+// Check if user is logged in
+function requireLogin() {
+    const loggedIn = localStorage.getItem("loggedIn");
+    if (loggedIn !== "true") {
+        alert("Please sign in before ordering.");
+        window.location.href = "login.html";
+        return false;
+    }
+    return true;
+}
 
+// Update cart display/count
+function updateCart() {
+    const cartCount = document.querySelector(".cart-count");
+    cartCount.textContent = cart.length;
+    console.log("Cart items:", cart);
+}
+
+// Add to cart button
+document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+        if (!requireLogin()) return;
+
+        const itemName = this.dataset.name;
+        const itemPrice = parseFloat(this.dataset.price) || 0;
+
+        const existing = cart.find(i => i.name === itemName);
+        if (existing) existing.qty++;
+        else cart.push({ name: itemName, price: itemPrice, qty: 1 });
+
+        alert(itemName + " added to cart!");
         updateCart();
     });
 });
 
-function updateCart() {
-    const cartItemsDiv = document.getElementById("cartItems");
-    const cartCount = document.querySelector(".cart-count");
-    const cartTotal = document.getElementById("cartTotal");
-
-    cartItemsDiv.innerHTML = "";
-    let total = 0;
-    let count = 0;
-
-    cart.forEach((item, index) => {
-        total += item.price * item.qty;
-        count += item.qty;
-
-        cartItemsDiv.innerHTML += `
-            <div class="cart-item">
-                <div class="cart-item-title">${item.name}</div>
-                <div class="cart-item-controls">
-                    <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                    <span>${item.qty}</span>
-                    <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                    <span class="remove-btn" onclick="removeItem(${index})">🗑️</span>
-                </div>
-            </div>
-        `;
-    });
-
-    cartCount.textContent = count;
-    cartTotal.textContent = total.toFixed(2);
-}
-
-function changeQty(index, num) {
-    cart[index].qty += num;
-    if (cart[index].qty <= 0) cart.splice(index, 1);
-    updateCart();
-}
-
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
+// Checkout
 function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
     alert("Your order has been submitted! Thank you!");
     cart = [];
     updateCart();
-    toggleCart();
 }
 
-    </script>
+/* LOGIN CHECK */
+function requireLogin() {
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    if (!loggedIn) {
+        alert("Please sign in before ordering.");
+        window.location.href = "index.html";
+        return false;
+    }
+    return true;
+}
+
+
+</script>
+
+
 <div class="floating-cart" onclick="toggleCart()">
     🛒 Order <span class="cart-count">0</span>
 </div>
@@ -1175,6 +1169,82 @@ function checkout() {
 
     <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
 </div>
+<!-- LOGIN MODAL -->
+<div id="loginModal" style="
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); display: none; justify-content: center;
+    align-items: center; z-index: 5000;">
+    
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 300px;">
+        <h2 style="text-align:center; margin-bottom:15px;">Sign In</h2>
+
+        <input id="username" type="text" placeholder="Username" 
+               style="width:100%; padding:10px; margin-bottom:10px;">
+
+        <input id="password" type="password" placeholder="Password" 
+               style="width:100%; padding:10px; margin-bottom:20px;">
+
+        <button onclick="login()" style="
+            width:100%; padding:10px; background:#FF6B35; 
+            color:white; border:none; border-radius:5px; cursor:pointer;">
+            Login
+        </button>
+
+        <button onclick="closeLogin()" style="
+            width:100%; padding:10px; margin-top:10px; background:#bbb;
+            border:none; border-radius:5px; cursor:pointer;">
+            Cancel
+        </button>
+    </div>
+</div>
+<script>
+let loggedIn = false;
+
+function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+}
+
+function closeLogin() {
+    document.getElementById("loginModal").style.display = "none";
+}
+
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "" || pass === "") {
+        alert("Please enter both username and password.");
+        return;
+    }
+
+    // VERY SIMPLE LOGIN
+    loggedIn = true;
+    closeLogin();
+    alert("Login successful! You can now order.");
+
+    // Enable Add-to-Cart buttons
+    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.style.cursor = "pointer";
+    });
+}
+
+// BLOCK ORDERING IF NOT LOGGED IN
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+
+        btn.addEventListener("click", () => {
+            if (!loggedIn) {
+                openLogin();
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
