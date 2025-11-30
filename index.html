@@ -611,15 +611,61 @@
         .floating-cart:hover {
             transform: scale(1.1);
         }
+@media (max-width: 600px) {
+
+    /* Navbar buttons smaller */
+    .nav-links button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 768px) {
+
+    /* Hero text */
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
+
+    /* Notice becomes 1 column */
+    .notice-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    /* Checkout layout becomes vertical */
+    .checkout-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    /* Stats grid 1 column */
+    .stats-grid { 
+        grid-template-columns: 1fr; 
+    }
+
+    /* Navbar spacing */
+    .nav-links { 
+        gap: 10px; 
+    }
+    .nav-links button { 
+        padding: 8px 15px; 
+        font-size: 14px; 
+    }
+}
+.checkout-grid { grid-template-columns: 1fr 1fr; }
 
         /* Responsive */
         @media (max-width: 768px) {
+              .checkout-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 36px; }
             .notice-grid, .checkout-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 10px; }
             .nav-links button { padding: 8px 15px; font-size: 14px; }
         }
+        @media (max-width: 768px) {
+    .notice-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
     </style>
 </head>
 <body>
