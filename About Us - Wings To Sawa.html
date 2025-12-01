@@ -1,139 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Wings To Sawa</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff7e6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us - Wings To Sawa</title>
 
-        header {
-            background: #b45309;
-            padding: 1rem 2rem;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<style>
+/* --- GLOBAL STYLING --- */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
 
-            header a {
-                color: white;
-                margin-left: 1rem;
-                text-decoration: none;
-                font-weight: bold;
-            }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff7e6;
+    color: #333;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
+/* HEADER */
+header {
+    background: linear-gradient(to right, #ea580c, #dc2626);
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
 
-        h1 {
-            font-size: 2.5rem;
-            color: #b45309;
-            margin-bottom: 1rem;
-        }
+header .logo {
+    font-size: 26px;
+    font-weight: bold;
+}
 
-        .section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
+header nav a {
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: rgba(255,255,255,0.15);
+    border-radius: 25px;
+    transition: 0.3s;
+}
 
-            .section p {
-                font-size: 1.1rem;
-                line-height: 1.7;
-                margin-bottom: 1rem;
-            }
+header nav a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
 
-        .info-box {
-            background: #fef3c7;
-            padding: 1.5rem;
-            border-left: 5px solid #b45309;
-            border-radius: 6px;
-            margin-top: 1.5rem;
-        }
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=1200')
+        center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: #451a03;
-            color: #fef3c7;
-            margin-top: 2rem;
-        }
-    </style>
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 20px;
+    color: #fbbf24;
+}
+
+/* CONTENT SECTIONS */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    animation: fadeIn 0.7s ease;
+}
+
+.section h2, .section h1 {
+    color: #ea580c;
+    margin-bottom: 1rem;
+}
+
+.section p {
+    line-height: 1.7;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+/* INFO BOX */
+.info-box {
+    background: #fff0cc;
+    padding: 1.5rem;
+    border-left: 8px solid #ea580c;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+/* GALLERY */
+.gallery-title {
+    font-size: 28px;
+    color: #dc2626;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    background: #331500;
+    color: #fef3c7;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 34px; }
+    .hero p { font-size: 16px; }
+
+    header nav a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .section p { font-size: 1rem; }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Wings To Sawa</div>
-        <nav>
-            <a href="index.html">Go Back Home</a>
+<header>
+    <div class="logo">🍗 Wings To Sawa</div>
+    <nav>
+        <a href="index.html">← Back Home</a>
+    </nav>
+</header>
 
-        </nav>
-    </header>
+<div class="hero">
+    <h1>Crafted with Passion</h1>
+    <p>Premium wings, premium experience.</p>
+</div>
 
-    <div class="container">
-        <div class="section">
-            <h1>About Us</h1>
-            <p>At Wings To Sawa, we are passionate about delivering an unforgettable dining experience centered around one thing—delicious, flavorful, and unlimited wings. Located in the heart of Binangonan, Rizal, our restaurant was built with one goal in mind: to create a place where friends, families, and groups can bond over great food and great moments.</p>
+<div class="container">
 
-            <p>We offer a diverse lineup of wing flavors ranging from sweet, spicy, tangy, and savory. Whether you're a fan of Mango Habanero, Garlic Parmesan, or prefer something adventurous, we make sure there's something for every taste.</p>
+    <!-- ABOUT SECTION -->
+    <div class="section">
+        <h1>About Us</h1>
+        <p>
+            Wings To Sawa was built with one mission—serve the best, most flavorful wings at
+            a sulit price you can't resist. Located in the heart of Binangonan, Rizal, we’ve become a go-to spot
+            for families, friends, and barkadas looking for unforgettable food moments.
+        </p>
 
-            <div class="info-box">
-                <h2>Our Promise</h2>
-                <p>
-                    ✔ Fresh and flavorful wings every day<br>
-                    ✔ Safe and clean dining environment<br>
-                    ✔ Affordable and sulit pricing at ₱315.00 per head<br>
-                    ✔ Friendly and fast service (we continuously improve based on customer feedback!)
-                </p>
-            </div>
-
-            <p>More than just unlimited wings, Wings To Sawa is about building memories—8 servings shared with barkada, celebrations with family, and laugh-filled moments around the table. Every visit is crafted to make you feel at home.</p>
+        <div class="info-box">
+            <h2>Our Promise</h2>
+            <p>
+                ✔ Fresh and flavorful wings daily<br>
+                ✔ Affordable UNLI pricing at ₱315 per head<br>
+                ✔ Clean and comfortable dining experience<br>
+                ✔ Fast, friendly staff ready to serve<br>
+                ✔ Diverse flavors from sweet to spicy<br>
+            </p>
         </div>
 
-        <div class="section">
-            <h2>Our Mission</h2>
-            <p>To serve high-quality wings at affordable prices while creating a welcoming environment where everyone can enjoy good food and good company.</p>
+        <p>
+            Every plate of wings we serve is prepared with care—perfect for bonding, celebrations, and casual hangouts.
+            At Wings To Sawa, great food means great memories.
+        </p>
+    </div>
 
-            <h2>Our Vision</h2>
-            <p>To become one of Rizal’s top comfort food destinations, known for flavor, value, and a dining experience that keeps customers coming back.</p>
+    <!-- MISSION & VISION -->
+    <div class="section">
+        <h2>Our Mission</h2>
+        <p>To serve high-quality wings at affordable prices and create a warm, welcoming place where everyone feels at home.</p>
 
-            <div class="section">
-                <h2>Store Gallery</h2>
-                <p>Take a look at our store and dining atmosphere! Here are some photos from inside Wings To Sawa.</p>
+        <h2>Our Vision</h2>
+        <p>To be one of Rizal’s top dining destinations—known for flavor, value, and a fun, memorable experience.</p>
+    </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                    <img src="1.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="2.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="3.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="4.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="5.jpg" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="6.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="7.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="8.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="9.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="10.jpg" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="11.jpg" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                    <img src="12.png" style="width:100%; border-radius:8px; height:200px; object-fit:cover;">
-                </div>
-            </div>
+    <!-- GALLERY -->
+    <div class="section">
+        <h2 class="gallery-title">Store Gallery</h2>
+        <p>Take a look inside Wings To Sawa — a warm, inviting place made for food and fun!</p>
 
+        <div class="gallery-grid">
+            <img src="1.png">
+            <img src="2.png">
+            <img src="3.png">
+            <img src="4.png">
+            <img src="5.jpg">
+            <img src="6.png">
+            <img src="7.png">
+            <img src="8.png">
+            <img src="9.png">
+            <img src="10.jpg">
+            <img src="11.jpg">
+            <img src="12.png">
         </div>
-        <footer>
-            <p>&copy; 2025 Wings To Sawa. All rights reserved.</p>
-        </footer>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 Wings To Sawa — Crafted with Passion.</p>
+</footer>
 
 </body>
 </html>
-
