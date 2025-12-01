@@ -139,58 +139,43 @@ footer {
     padding: 1.5rem;
     margin-top: 40px;
 }
-
-/* MOBILE OPTIMIZATION */
+/* FIX NAVBAR MOBILE BROKEN LAYOUT */
 @media (max-width: 768px) {
 
-    header {
-        padding: 0.8rem 1rem;
-    }
-    header .logo {
-        font-size: 18px;
-    }
-    header nav a {
-        padding: 6px 12px;
-        font-size: 13px;
+    .navbar {
+        padding: 10px 0;
     }
 
-    .hero {
-        padding: 70px 20px;
-    }
-    .hero h1 {
-        font-size: 30px;
-    }
-    .hero p {
-        font-size: 16px;
+    .navbar .container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 
-    .section {
-        padding: 1.3rem;
-    }
-    .section h1, .section h2 {
-        font-size: 22px;
-    }
-    .section p {
-        font-size: 1rem;
+    .logo {
+        font-size: 20px;
+        width: 100%;
     }
 
-    .gallery-grid img {
-        height: 140px;
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .nav-links button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px 0;
     }
 }
 
-/* EXTRA SMALL MOBILE (IPHONE SE, 320px) */
+/* EXTRA SMALL FIX */
 @media (max-width: 430px) {
-    .hero h1 { font-size: 26px; }
-    .hero p { font-size: 14px; }
-
-    header nav a {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+    .nav-links button {
+        font-size: 13px;
+        padding: 8px 12px;
     }
 }
 </style>
